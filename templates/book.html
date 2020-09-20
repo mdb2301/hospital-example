@@ -1,0 +1,81 @@
+{% extends 'index.html' %}
+{% block content %}
+<section class="jumbotron m-0" style="background-color:#ededed;">
+    <div class="col-xl-9 mx-auto text-center mb-2"> 
+        <h2>Take Appointment</h2>
+    </div>
+    <hr style="margin-bottom:5rem;height:2px;width:6rem;background-color:black;">
+    {% if booked %}
+    <div class="col-xl-9 mx-auto">
+        <h4 style="margin-bottom:3rem;"class="alert alert-success">Appointment booked!Please check the email</h4>
+    </div>
+    {% endif %}
+    <div class="col-xl-9 mx-auto">
+        <form method="POST">
+            {{form.hidden_tag()}}
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label ml-1">Email</label>
+                <div class="col-sm-10">
+                  {{form.email(class="form-control ml-3")}}
+                </div>
+            </div>
+            {% if invalid_mail %}
+            <p style="color:red;">Email doesn't exist</p>
+            {% endif %}
+            <div class="row" style="margin-top:3rem;margin-left:0.2rem;">
+                <h6>Pick a Date</h6>
+            </div>
+            <div class="row mt-3 ml-1 mr-1">
+                <div class="col-md-4">
+                    {{form.day(class="custom-select mr-sm-2")}}
+                    {% if form.day.errors %}
+                        <p style="color:red;">Please select day</p>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    {{form.month(class="custom-select mr-sm-2")}}
+                    {% if form.month.errors %}
+                        <p style="color:red;">Please select month</p>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    {{form.year(class="custom-select mr-sm-2")}}
+                    {% if form.year.errors %}
+                        <p style="color:red;">Please select year</p>
+                    {% endif %}
+                </div>
+                {% if invalid_date %}
+                    <p style="color:red;">Invalid date or date in past</p>
+                {% endif %}
+            </div>
+            <div class="row" style="margin-top:3rem;">
+                <div class="col-md-6">
+                    <div class="row mt-3 ml-2 mr-2">
+                        <h6>Pick the Speciality</h6>
+                    </div>
+                    <div class="row mt-3 ml-2 mr-2">
+                        {{form.dept(class="custom-select mr-sm-2")}}
+                        {% if form.dept.errors %}
+                            <p style="color:red;">Please select department</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row mt-3 ml-2 mr-2">
+                        <h6>Pick the location</h6>
+                    </div>
+                    <div class="row mt-3 ml-2 mr-2">
+                        {{form.loc(class="custom-select mr-sm-2")}}
+                        {% if form.loc.errors %}
+                            <p style="color:red;">Please select location</p>
+                        {% endif %}                    
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3 ml-2 text-center">
+                {{form.submit(class="btn btn-md btn-outline-dark mx-auto",style="margin-top:3rem;")}}
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

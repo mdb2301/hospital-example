@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block content %}
+<section class="jumbotron m-0" style="background-color:#ededed;">
+    {% if done %}
+    <div class="col-xl-9 mx-auto alert alert-info">
+        <h6>Feedback submitted!</h6>
+    </div>
+    {% endif %}
+    <div class="col-xl-9 mx-auto">
+        <h2 class="mb-4">Contact Us</h2>
+    </div>
+    <div class="col-xl-9 mx-auto">
+        <form method="POST">
+            {{form.hidden_tag()}}
+            <div class="row mt-3 ml-2 mr-2">
+                {{form.name(style="border:1px solid black;",class="form-control form-control-md bg-transparent",placeholder="Name")}}
+            </div>
+            <div class="row mt-3 ml-2 mr-2">
+                {{form.comment(style="border:1px solid black;resize:none;",placeholder="Comment", cols="30", rows="10", class="form-control form-control-md bg-transparent")}}
+            </div>
+            <div class="row mt-3 ml-2 text-center">
+                {{form.submit(class="btn btn-md btn-outline-dark")}}
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

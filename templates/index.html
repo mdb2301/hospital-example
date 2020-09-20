@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .navitem{
+            color:white;
+        }
+        .navitem:hover{
+            color:#bda000;
+        }
+    </style>
+</head>
+<body style="font-family: 'Lato', sans-serif;">
+    <nav class="navbar mynav navbar-expand-lg navbar-light sticky-top" style="transition:1s;background-color:#ededed;padding-left:1rem;padding-right:2rem;">
+        <div class="navbar-brand my-auto ml-2">
+            <a href="{{url_for('index')}}" id="logo" style="position:relative;font-size:2rem;letter-spacing: 0.3rem;color:black;text-decoration:none;">LIFE CARE</a>
+        </div>
+        <div id="vl" style="width:2px;height:3rem;background-color:#ededed;"></div>
+        <ul class="navbar-nav ml-auto" id="menu">
+            <li class="nav-item" style="padding:0.5rem;"><a href="{{url_for('index')}}" class="nav-link mynavitem" style="color:black;">Home</a></li>
+            <li class="nav-item" style="padding:0.5rem;"><a href="{{url_for('locations')}}" class="nav-link mynavitem" style="color:black;">Locations</a></li>
+            <li class="nav-item" style="padding:0.5rem;"><a href="{{url_for('feedback')}}" class="nav-link mynavitem" style="color:black;">Contact Us</a></li>
+            <li class="nav-item" style="padding:0.5rem;"><a href="{{url_for('appointment')}}" class="btn btn-md btn-outline-success">Book Appointment</a></li>
+        </ul>
+    </nav>
+    {% block content %}
+    <div class="jumbotron m-0" style="background-image: url('/static/img/banner.png');background-size:cover;height:35rem;border-radius:0;">
+        <div style="margin-top:8rem;margin-left:3rem;color:white;opacity:0.9;">
+            <h1>Bringing health</h1>
+            <h4 class="mt-4">to life for decades</h4>
+            <a href="#about" class="btn btn-md btn-outline-light mt-4">Get Started</a>
+        </div>
+    </div>
+    <section class="jumbotron m-0 text-light" style="border-radius:0;background-color:#ededed;">
+        <h2 class="mb-2 mt-5 text-center" style="color:black;">About Us</h2>
+        <hr class="col-lg-3 mb-5" style="width:2rem;height:0.3rem;background-color:black;">
+        <div class="row p-2">
+            <div class="col-md-5 m-5 pl-auto pr-auto" style="border:1px solid black;color:black;padding-bottom: 3rem;">
+                <h2 class="mb-2 mt-5" style="text-align:center;">Our Vision</h2>
+                <p class="mt-5" style="font-size: 1.1rem;letter-spacing:0.1rem;text-align:center;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus, commodi omnis. Velit ipsam temporibus id suscipit, eius sit. Aliquid, reiciendis!</p>
+            </div>
+            <div class="col-md-5 m-5 pl-auto pr-auto" style="border:1px solid black;color:black;padding-bottom: 3rem;">
+                <h2 class="mb-2 mt-5" style="text-align:center;">Our Mission</h2>
+                <p class="mt-5" style="font-size: 1.1rem;letter-spacing:0.1rem;text-align:center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur numquam qui esse minus consectetur laudantium nihil totam enim tenetur et?</p>
+            </div>
+        </div>
+    </section>
+    <section class="jumbotron m-0 text-light" id="about" style="border-radius:0;background-color:#85c0ff;">
+        <h2 class="mb-2 mt-5 text-center" style="color:black;">Specialities</h2>
+        <hr class="col-lg-3 mb-5" style="width:2rem;height:0.3rem;background-color:black;">
+        <div class="row text-center" style="margin-top:6rem;margin-bottom:6rem;">
+            <div class="col-md-2 px-auto mb-3">
+                <img src="/static/img/tooth.png" class="p-4" style="height:6rem;">
+                <h6 style="color:black;">Dentistry</h6>
+            </div>
+            <div class="col-md-2 px-auto mb-3">
+                <img src="/static/img/heart.png" class="p-4" style="height:6rem;">
+                <h6 style="color:black;">Cardiology</h6>
+            </div>
+            <div class="col-md-2 px-auto mb-3">
+                <img src="/static/img/ear.png" class="p-4" style="height:6rem;">
+                <h6 style="color:black;">ENT</h6>
+            </div>
+            <div class="col-md-2 px-auto mb-3">
+                <img src="/static/img/brain.png" class="p-4" style="height:6rem;">
+                <h6 style="color:black;">Neurology</h6>
+            </div>
+            <div class="col-md-2 px-auto mb-3">
+                <img src="/static/img/blood-tube.png" class="p-4" style="height:6rem;">
+                <h6 style="color:black;">Blood Screening</h6>
+            </div>
+            <div class="col-md-2 px-auto mb-3">
+                <img src="/static/img/virus.png" class="p-4" style="height:6rem;">
+                <h6 style="color:black;">Virology</h6>
+            </div>
+        </div>
+    </section>
+    <section class="jumbotron m-0 text-light showcase text-center" style="border-radius:0;background-color:#ededed;">
+        <h2 class="mb-2 mt-5 text-center" style="color:black;">Management</h2>
+        <hr class="col-lg-3 mb-5" style="width:2rem;height:0.3rem;background-color:black;">
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/static/img/5.png" style="height:18rem;" class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title" style="color:black;">Dr. Hans Irwin</h5>
+                      <p class="card-text" style="color:black;">Director</p>
+                      <a href="#" class="btn btn-outline-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/static/img/7.png" style="height:18rem;" class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title" style="color:black;">Dr. Hans Irwin</h5>
+                      <p class="card-text" style="color:black;">Director</p>
+                      <a href="#" class="btn btn-outline-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/static/img/6.png" style="height:18rem;" class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title" style="color:black;">Dr. Hans Irwin</h5>
+                      <p class="card-text" style="color:black;">Director</p>
+                      <a href="#" class="btn btn-outline-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+    <footer class="footer mt-0 pb-4 pt-4" style="background-color:black;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 my-auto h-100 text-center text-lg-left">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="#" style="text-decoration:none;" class="navitem">About</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#" style="text-decoration:none;" class="navitem">Contact</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#" style="text-decoration:none;" class="navitem">Terms of &nbsp;Use</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#" style="text-decoration:none;" class="navitem">Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mt-4 mb-lg-0">© Health Care 2020. All Rights Reserved.</p>
+                    <div class="mt-4">
+                        <p class="text-muted small mb-4 mt-2 mb-lg-0"><i class="fa fa-map-marker mr-2" aria-hidden="true"></i><span style="margin-right:2rem;"></span> Pune, Maharashtra, India</p>
+                        <p class="text-muted small mb-4 mt-2 mb-lg-0"><i class="fa fa-envelope mr-2" aria-hidden="true"></i><span style="margin-right:1.78rem;"></span>somemail@example.com</p>
+                        <p class="text-muted small mb-4 mt-2 mb-lg-0"><i class="fa fa-phone mr-2" aria-hidden="true"></i><span style="margin-right:1.9rem;"></span>+91 ********54</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function(){
+            var scroll = $(window).scrollTop();
+            if(scroll > 100){
+                $('.mynav').css('background','black');
+                $('#logo').css('color','white');
+                $('.mynavitem').css('color','white');
+                $('.mynav').css('padding-left','22rem');
+                $('.mynav').css('padding-right','13rem'); 
+            }else {
+                $('.mynav').css('background','#ededed');
+                $('.mynavitem').css('color','black');
+                $('#logo').css('color','black');
+                $('.mynav').css('padding-left','1rem'); 
+                $('.mynav').css('padding-right','2rem');
+            }
+        });
+    </script>
+</body>
+</html>
